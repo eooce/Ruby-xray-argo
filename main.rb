@@ -5,7 +5,7 @@ system('./start.sh')
 require 'webrick'
 
 root = File.expand_path('.')
-server = WEBrick::HTTPServer.new BindAddress: '0.0.0.0', Port: 8000, DocumentRoot: root
+server = WEBrick::HTTPServer.new BindAddress: '0.0.0.0', Port: 3000, DocumentRoot: root
 
 server.mount_proc '/' do |_req, res|
   res.body = 'Hello world'
