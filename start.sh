@@ -1,13 +1,13 @@
 #!/bin/bash
 export UUID=${UUID:-'0afd527c-17f6-4238-b447-792b58eb648s'}
-export NEZHA_SERVER=${NEZHA_SERVER:-'nz.f4i.cn'}
-export NEZHA_PORT=${NEZHA_PORT:-'5555'}  # 哪吒端口设置为{443,8443,2096,2087,2053}其中一个时开启tls
-export NEZHA_KEY=${NEZHA_KEY:-'OUfo6FXOgaC5AsEFkQ'}
+export NEZHA_SERVER=${NEZHA_SERVER:-'nz.abc.cn'}
+export NEZHA_PORT=${NEZHA_PORT:-'5555'}  # 哪吒端口设置为{443,8443,2096,2087,2083,2053}其中一个时开启tls
+export NEZHA_KEY=${NEZHA_KEY:-''}
 export ARGO_DOMAIN=${ARGO_DOMAIN:-''}  
 export ARGO_AUTH=${ARGO_AUTH:-''}
-export CFIP=${CFIP:-'cf1.eryayun.tk'}
+export CFIP=${CFIP:-'skk.moe'}
 export NAME=${NAME:-'Vls'}
-export FILE_PATH=${FILE_PATH:-'./world'}
+export FILE_PATH=${FILE_PATH:-'./temp'}
 export ARGO_PORT=${ARGO_PORT:-'8001'}  # argo隧道端口，若使用固定隧道token需改回8080或CF后台改为与这里对应
 
 if [ ! -d "${FILE_PATH}" ]; then
@@ -296,7 +296,7 @@ sleep 3
 run() {
   if [ -e "${FILE_PATH}/npm" ]; then
     	chmod 775 "${FILE_PATH}/npm"
-    	tlsPorts=("443" "8443" "2096" "2087" "2053")
+    	tlsPorts=("443" "8443" "2096" "2087" "2083" "2053")
     	if [[ "${tlsPorts[*]}" =~ "${NEZHA_PORT}" ]]; then
     		NEZHA_TLS="--tls"
     	else
@@ -367,5 +367,3 @@ sleep 15
 clear
 
 echo -e "\nserver is running"
-
-tail -f /dev/null
